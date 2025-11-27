@@ -1,0 +1,103 @@
+body {
+  background-color: #FDFAE0;
+  padding: 40px;
+  color: #949F6E;
+  text-align: center;
+  margin: 0;
+}
+
+table {
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  background: #949F6E;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  color: #FDFAE0;
+  font-weight: 600;
+}
+
+table tr {
+  /* add some vertical spacing */
+  height: 50px;
+}
+
+table td, table th {
+  padding: 12px 20px;
+  vertical-align: middle;
+  /* No borders, soft style */
+}
+
+table thead tr {
+  background-color: #7A8553;
+  border-radius: 12px 12px 0 0;
+  color: #FDFAE0;
+  font-size: 18px;
+}
+
+button {
+  font-family: 'Poppins';
+  background-color: #FDFAE0;
+  color: #949F6E;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 5px;
+  min-width: 80px;
+}
+
+button:hover {
+  background-color: #DDE3B8;
+}
+
+input[type="text"] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #949F6E;
+  font-size: 16px;
+  width: 150px;
+  color: #494F24;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  margin: 0;
+  color: #FDFAE0;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Small tweak for paragraph inside tables */
+table p {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* For active/inactive status paragraphs */
+table td p {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Responsive: make tables scroll horizontally on small screens */
+@media (max-width: 600px) {
+  table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+}

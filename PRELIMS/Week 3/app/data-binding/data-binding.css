@@ -1,0 +1,90 @@
+body {
+  background-color: #FDFAE0;
+  padding: 40px;
+  color: #949F6E;
+  text-align: center;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px auto;
+  border: 3px solid #949F6E; /* subtle border matching your color */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+
+h1 {
+  margin-bottom: 40px;
+  color: #949F6E;
+}
+
+section {
+  background: #949F6E;
+  color: #FDFAE0;
+  border-radius: 12px;
+  width: 300px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+section h2 {
+  margin-bottom: 20px;
+}
+
+section img {
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #FDFAE0;
+}
+
+button {
+  font-family: 'Poppins';
+  background-color: #FDFAE0;
+  color: #949F6E;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+h2 {
+  color: #949F6E;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+/* Passing and failing text styles */
+.passing {
+  color: #4CAF50; /* green */
+  font-weight: 700;
+}
+
+.failing {
+  color: #F44336; /* red */
+  font-weight: 700;
+}
+
+/* Style for the box div */
+.box {
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,25 @@
+nav {
+  background-color: #FDFAE0;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #949F6E;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.2s ease;
+}
+
+/* Reverse colors + lift + shadow */
+nav a:hover {
+  background-color: #949F6E;
+  color: #FDFAE0;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}

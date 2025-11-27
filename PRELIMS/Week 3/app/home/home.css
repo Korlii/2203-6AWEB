@@ -1,0 +1,44 @@
+body {
+  background-color: #FDFAE0;
+  padding: 40px;
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+  color: #949F6E;
+}
+
+.card {
+  width: 250px;
+  padding: 20px;
+  margin: 40px auto;
+  background: #949F6E;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  color: #FDFAE0;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background-image: url('https://via.placeholder.com/120');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* small styling for subtitle and description */
+h3 {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.about-text {
+  max-width: 400px;
+  margin: 10px auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
