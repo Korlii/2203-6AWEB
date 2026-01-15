@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="main-header-container">
+    <h1 class="main-heading">Angular Pipes</h1>
+  </div>
+
+  <div class="card">
+    <h3>Parameter in Date</h3>
+    <hr>
+    <div class="output">
+      <strong>Today's date :-</strong> {{presentDate | date }} <br/>
+      <strong>Short date :-</strong> {{presentDate | date:'shortDate' }} <br/>
+      <strong>Full date :-</strong> {{presentDate | date:'fullDate'}} <br/>
+      <strong>Formatted date :-</strong> {{presentDate | date:'M/dd/yyyy'}} <br/>
+      <strong>Hours and minutes :-</strong> {{presentDate | date:'h:mm'}}
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Chained Pipes</h3>
+    <hr>
+    <div class="output">
+      <strong>Uppercase :-</strong> {{presentDate | date:'fullDate' | uppercase}} <br/>
+      <strong>Lowercase :-</strong> {{presentDate | date:'medium' | lowercase}}
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>AsyncPipe</h3>
+    <hr>
+    <div class="output">
+      <strong>Seconds changing in Time:</strong> {{ time$ | async | date:'mediumTime'}}
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>CurrencyPipe</h3>
+    <hr>
+    <div class="output">
+      <p><strong>Default :-</strong> {{ price | currency:'':true}}</p>
+      <p><strong>INR :-</strong> {{ price | currency:'INR' }}</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>SlicePipe</h3>
+    <hr>
+    <div class="output">
+      <strong>Start index 2 :-</strong> {{Fruits | slice:2}} <br/>
+      <strong>Index 1:4 :-</strong> {{Fruits | slice:1:4}} <br/>
+      <strong>Negative -2 :-</strong> {{Fruits | slice:-2}} <br/>
+      <strong>Negative -4:-2 :-</strong> {{Fruits | slice:-4:-2}}
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>DecimalPipe</h3>
+    <hr>
+    <div class="output">
+      <strong>Formatting '3.1' :-</strong> {{decimalNum1 | number:'3.1'}} <br/>
+      <strong>Formatting '2.1-4' :-</strong> {{decimalNum1 | number:'2.1-4'}}
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>TitleCasePipe</h3>
+    <hr>
+    <div class="output">
+      <strong>Original :-</strong> {{ userObject.name }} <br/>
+      <strong>TitleCase :-</strong> {{ userObject.name | titlecase }}
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>JsonPipe</h3>
+    <hr>
+    <div class="output">
+      <strong>Raw Object :-</strong> {{ userObject }} <br/>
+      <strong>JSON Format :-</strong>
+      <pre>{{ userObject | json }}</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>KeyValuePipe</h3>
+    <hr>
+    <div class="output">
+      <strong>Iterating over an Object :-</strong>
+      <ul>
+        @for (item of userObject | keyvalue; track item.key) {
+          <li><strong>{{ item.key | titlecase }}:</strong> {{ item.value }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
