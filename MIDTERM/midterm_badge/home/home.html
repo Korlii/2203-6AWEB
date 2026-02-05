@@ -1,0 +1,21 @@
+<div class="home-wrapper">
+  <section class="hero-section">
+    <div class="title-container">
+      <h1 class="glowing-title">Welcome to Community Help Desk</h1>
+    </div>
+    <p class="subtitle">Your central hub for support and latest community updates.</p>
+  </section>
+
+  <div class="updates-container">
+    <h2>Latest Updates</h2>
+    <div *ngIf="latestPosts$ | async as posts">
+      <div class="post-card" *ngFor="let post of posts">
+        <div class="post-id">{{ post.id }}</div>
+        <div class="post-content">
+          <h3>{{ post.title | uppercase }}</h3>
+          <p>{{ post.body | truncate:90 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

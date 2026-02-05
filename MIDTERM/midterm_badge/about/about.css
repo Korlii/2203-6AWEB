@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.about-container {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  letter-spacing: -1.5px;
+  margin-bottom: 40px;
+}
+
+section p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #cccccc;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+strong {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  margin: 50px 0;
+}
+
+.meta-info {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px 45px; /* Increased padding for a larger pill */
+  border-radius: 100px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.meta-info p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600; /* Made slightly bolder */
+  font-size: 1.1rem; /* Increased font size */
+  letter-spacing: 0.5px;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.2);
+}

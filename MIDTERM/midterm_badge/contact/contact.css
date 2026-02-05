@@ -1,0 +1,135 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contact-page {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+  letter-spacing: -1.5px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.contact-grid {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+form {
+  flex: 1;
+  min-width: 320px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding-left: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 50px;
+  border: none;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.preview-box {
+  flex: 0.8;
+  min-width: 320px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  padding: 40px;
+  border-radius: 30px;
+  position: relative;
+}
+
+.preview-box h2 {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #bbbbbb;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.preview-item {
+  margin-bottom: 25px;
+}
+
+.preview-item span {
+  display: block;
+  color: #aaaaaa;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.preview-item p {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.1rem;
+  word-wrap: break-word;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+hr {
+  display: none;
+}

@@ -1,0 +1,39 @@
+<div class="services-container">
+  <h1>Our Services</h1>
+
+  <input
+    type="text"
+    [formControl]="searchControl"
+    placeholder="Search records..."
+  />
+
+  <hr />
+
+  <ng-container *ngIf="filteredPosts$ | async as posts; else loadingOrError">
+
+    <div *ngIf="posts.length > 0; else noResults" class="posts-grid">
+      <div *ngFor="let post of posts" class="post-card">
+        <div class="post-id-badge">{{ post.id }}</div>
+
+        <div class="post-content">
+          <h3>{{ post.title | uppercase }}</h3>
+          <p>{{ post.body }}</p>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noResults>
+      <p class="no-results">No matches found for "{{ searchControl.value }}".</p>
+    </ng-template>
+
+  </ng-container>
+
+  <ng-template #loadingOrError>
+    <div *ngIf="searchControl.disabled; else loader">
+      <p style="color: #ff4d4d; text-align: center;">Error: Could not load data.</p>
+    </div>
+    <ng-template #loader>
+      <p class="loader">Loading records...</p>
+    </ng-template>
+  </ng-template>
+</div>

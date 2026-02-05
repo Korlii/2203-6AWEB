@@ -1,0 +1,53 @@
+<div class="contact-page">
+  <h1>Contact Us</h1>
+
+  <div class="contact-grid">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Name</label>
+        <input type="text" formControlName="name" placeholder="Enter your name">
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="example@email.com">
+      </div>
+
+      <div>
+        <label>Subject</label>
+        <input type="text" formControlName="subject" placeholder="What is this about?">
+      </div>
+
+      <div>
+        <label>Message</label>
+        <textarea formControlName="message" placeholder="Type your message here..."></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <section class="preview-box">
+      <h2>Live Preview</h2>
+
+      <div class="preview-item">
+        <span>SENDER NAME</span>
+        <p>{{ contactForm.value.name | uppercase }}</p>
+      </div>
+
+      <div class="preview-item">
+        <span>EMAIL ADDRESS</span>
+        <p>{{ contactForm.value.email }}</p>
+      </div>
+
+      <div class="preview-item">
+        <span>SUBJECT</span>
+        <p>{{ contactForm.value.subject }}</p>
+      </div>
+
+      <div class="preview-item">
+        <span>MESSAGE CONTENT</span>
+        <p>{{ contactForm.value.message }}</p>
+      </div>
+    </section>
+  </div>
+</div>
