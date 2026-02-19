@@ -1,0 +1,63 @@
+<div class="flex-container">
+  <div class="card">
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+      <h2 style="color: #3e2723; text-align: center; margin-bottom: 20px;">Registration Form</h2>
+
+      <label class="field-header">Username</label>
+      <input class="input" type="text" name="username" [(ngModel)]="username" placeholder="Enter username" required>
+
+      <label class="field-header">Email Address</label>
+      <input class="input" type="email" name="email" [(ngModel)]="email" placeholder="Enter email" required email>
+
+      <label class="field-header">Password</label>
+      <input class="input" type="password" name="password" [(ngModel)]="password" placeholder="Enter password" required minlength="6">
+
+      <label class="field-header">Account Role</label>
+      <select class="input" name="role" [(ngModel)]="role" required>
+        <option value="" disabled selected>Select role</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        <option value="guest">Guest</option>
+      </select>
+
+      <label class="field-header">Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" [(ngModel)]="gender" value="male" required> Male</label>
+        <label><input type="radio" name="gender" [(ngModel)]="gender" value="female"> Female</label>
+      </div>
+
+      <label class="field-header">Status</label>
+      <div class="radio-group">
+        <label><input type="radio" name="status" [(ngModel)]="status" value="permanent" required> Permanent</label>
+        <label><input type="radio" name="status" [(ngModel)]="status" value="probationary"> Probationary</label>
+      </div>
+
+      <label class="field-header">Comments</label>
+      <textarea class="input" name="comments" [(ngModel)]="comments" placeholder="Enter your comments..." rows="3"></textarea>
+
+      <button class="btn" type="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+  </div>
+
+  @if (submitted) {
+    <div class="result-wrapper">
+      <div class="card result-card">
+        <h3 style="color: #3e2723; margin-top: 0;">Submission Received</h3>
+        <hr style="border: 0; border-top: 1px solid #d7ccc8; margin-bottom: 20px;">
+
+        <div class="data-display">
+          <p><strong>Username:</strong> {{ username | uppercase }}</p>
+          <p><strong>Email:</strong> {{ email }}</p>
+          <p><strong>Role:</strong> {{ role }}</p>
+          <p><strong>Gender:</strong> {{ gender | titlecase }}</p>
+          <p><strong>Status:</strong> {{ status | titlecase }}</p>
+          <p><strong>Comments Preview:</strong> {{ comments | slice:0:30 }}{{ comments.length > 30 ? '...' : '' }}</p>
+        </div>
+
+        <div class="status-indicator" style="margin-top: 20px;">
+          <p style="color: #8d6e63;"><strong>✔ Form Successfully Processed</strong></p>
+        </div>
+      </div>
+    </div>
+  }
+</div>

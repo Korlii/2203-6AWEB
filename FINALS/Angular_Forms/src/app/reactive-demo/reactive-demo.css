@@ -1,0 +1,138 @@
+/* Container to align Form and Result side-by-side */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px; /* The gap between form and result */
+  padding: 40px 20px;
+  flex-wrap: wrap; /* Stacks them on smaller screens */
+}
+
+/* Ensure both boxes have the same width */
+.card, .result-wrapper {
+  flex: 1;
+  min-width: 350px;
+  max-width: 450px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #d7ccc8;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Field Headers: Tan (#AE6E4E) and Bold */
+.field-header {
+  display: block;
+  text-align: left;
+  color: #AE6E4E;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  margin-top: 12px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #d7ccc8;
+  border-radius: 6px;
+  background-color: white;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #a1887f;
+  box-shadow: 0 0 0 3px rgba(161, 136, 127, 0.1);
+}
+
+/* Button: White Background with Brown Border */
+.btn {
+  margin-top: 20px;
+  padding: 14px;
+  background-color: #ffffff;
+  color: #8d6e63;
+  border: 2px solid #8d6e63;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #8d6e63;
+  color: #ffffff;
+}
+
+.btn:disabled {
+  background-color: #f5f5f5;
+  color: #ccc;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  padding: 5px 0;
+}
+
+.radio-group label {
+  font-weight: normal;
+  font-size: 0.9rem;
+  color: #5d4037;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error {
+  color: #a52a2a;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Result Card Styling */
+.result-card {
+  border: 2px dashed #bcaaa4;
+  background-color: #ffffff;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.data-display p {
+  margin: 10px 0;
+  color: #5d4037;
+  font-size: 0.95rem;
+}
+
+.data-display strong {
+  color: #bcaaa4; /* Bold Tan labels in results */
+  margin-right: 5px;
+}
+
+pre {
+  background: #fdf5e6;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #8d6e63;
+  overflow-x: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}

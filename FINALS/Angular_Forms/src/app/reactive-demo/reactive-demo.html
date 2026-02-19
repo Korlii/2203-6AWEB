@@ -1,0 +1,73 @@
+<div class="flex-container">
+  <div class="card">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2 style="color: #AE6E4E; text-align: center; margin-bottom: 20px;">Registration Form</h2>
+
+      <label class="field-header">Username</label>
+      <input class="input" placeholder="Username" formControlName="username" />
+      @if (isInvalid('username')) {
+        <small class="error">Username: 4-12 chars (letters/numbers/_)</small>
+      }
+
+      <label class="field-header">Email Address</label>
+      <input class="input" type="email" placeholder="Email" formControlName="email" />
+      @if (isInvalid('email')) {
+        <small class="error">Enter a valid email</small>
+      }
+
+      <label class="field-header">Password</label>
+      <input class="input" type="password" placeholder="Password" formControlName="password" />
+      @if (isInvalid('password')) {
+        <small class="error">Password: 8+ with upper, lower, number</small>
+      }
+
+      <label class="field-header">Account Role</label>
+      <select class="input" formControlName="role">
+        @for (r of roles; track r) {
+          <option [value]="r">{{ r }}</option>
+        }
+      </select>
+
+      <label class="field-header">Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" value="male" formControlName="gender"> Male</label>
+        <label><input type="radio" value="female" formControlName="gender"> Female</label>
+        <label><input type="radio" value="other" formControlName="gender"> Other</label>
+      </div>
+
+      <label class="field-header">Status</label>
+      <div class="radio-group">
+        <label><input type="radio" value="permanent" formControlName="status"> Permanent</label>
+        <label><input type="radio" value="probationary" formControlName="status"> Probationary</label>
+      </div>
+
+      <label class="field-header">Comments</label>
+      <textarea class="input" formControlName="comments" placeholder="Enter your comments..." rows="3"></textarea>
+
+      <button class="btn" type="submit" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+
+  @if (submitted) {
+    <div class="result-wrapper">
+      <div class="card result-card">
+        <h3 class="field-header" style="margin-top: 0;">Form Results</h3>
+        <hr style="border: 0; border-top: 1px solid #d7ccc8; margin-bottom: 20px;">
+
+        <div class="data-display">
+          <p><strong>Username:</strong> {{ submittedData.username }}</p>
+          <p><strong>Email:</strong> {{ submittedData.email }}</p>
+          <p><strong>Role:</strong> {{ submittedData.role }}</p>
+          <p><strong>Gender:</strong> {{ submittedData.gender | titlecase }}</p>
+          <p><strong>Status:</strong> {{ submittedData.status | titlecase }}</p>
+          <p><strong>Comments:</strong> {{ submittedData.comments || 'No comments' }}</p>
+        </div>
+
+        <details style="margin-top: 15px;">
+          <summary class="field-header" style="cursor:pointer; font-size: 0.8rem;">View JSON Data</summary>
+          <pre>{{ submittedData | json }}</pre>
+        </details>
+      </div>
+    </div>
+  }
+</div>

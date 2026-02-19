@@ -1,0 +1,58 @@
+<div class="flex-container">
+  <div class="card">
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <h2 style="color: #C7AD7F; text-align: center;">Customer Feedback</h2>
+
+      <label class="field-header">Customer Name</label>
+      <input class="input" formControlName="customerName" placeholder="Full Name">
+      @if (feedbackForm.get('customerName')?.invalid && feedbackForm.get('customerName')?.touched) {
+        <span class="error">Name is required</span>
+      }
+
+      <label class="field-header">Customer Email</label>
+      <input class="input" type="email" formControlName="customerEmail" placeholder="email@example.com">
+      @if (feedbackForm.get('customerEmail')?.invalid && feedbackForm.get('customerEmail')?.touched) {
+        <span class="error">Valid email is required</span>
+      }
+
+      <label class="field-header">Customer Number (PH)</label>
+      <input class="input" type="text" formControlName="customerNumber" placeholder="09171234567">
+      @if (feedbackForm.get('customerNumber')?.invalid && feedbackForm.get('customerNumber')?.touched) {
+        <span class="error">Phone number is required</span>
+      }
+
+      <label class="field-header">Customer Concern</label>
+      <select class="input" formControlName="concern">
+        <option value="" disabled selected>Select a concern</option>
+        <option value="Product Quality">Product Quality</option>
+        <option value="Wrong Product">Wrong Product</option>
+        <option value="Refunds">Refunds</option>
+        <option value="Other Concern">Other Concern</option>
+      </select>
+      @if (feedbackForm.get('concern')?.invalid && feedbackForm.get('concern')?.touched) {
+        <span class="error">Please select a concern</span>
+      }
+
+      <label class="field-header">Message</label>
+      <textarea class="input" formControlName="message" rows="4" placeholder="How can we help?"></textarea>
+
+      <button class="btn" type="submit" [disabled]="feedbackForm.invalid">Submit Feedback</button>
+    </form>
+  </div>
+
+  @if (submitted) {
+    <div class="result-wrapper">
+      <div class="card result-card">
+        <h3 style="color: #C7AD7F;">Feedback Summary</h3>
+        <hr style="border: 0; border-top: 1px solid #d7ccc8; margin-bottom: 20px;">
+        <div class="data-display">
+          <p><strong>Name:</strong> {{ feedbackForm.value.customerName | uppercase }}</p>
+          <p><strong>Email:</strong> {{ feedbackForm.value.customerEmail }}</p>
+          <p><strong>Phone:</strong> {{ feedbackForm.value.customerNumber }}</p>
+          <p><strong>Concern:</strong> {{ feedbackForm.value.concern }}</p>
+          <p><strong>Message:</strong> {{ feedbackForm.value.message }}</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>
