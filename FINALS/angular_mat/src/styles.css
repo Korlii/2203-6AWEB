@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f0f7;
+  /* Update this line below */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Also update your labels and headers for that consistent look */
+label, h3, .radio-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500; /* Montserrat looks best at medium weight for labels */
+}
+

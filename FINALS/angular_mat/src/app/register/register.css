@@ -1,0 +1,82 @@
+/* Container styling for a centered, elegant layout */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f0f7; /* Very light lavender background */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.form-container {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  /* Deep, soft shadow for a premium 'lifted' feel */
+  box-shadow: 0 10px 30px rgba(75, 0, 130, 0.1);
+  border-top: 6px solid #4b0082; /* Deep Indigo/Purple top accent */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Material Field Refinements */
+mat-form-field {
+  width: 100%;
+}
+
+/* Customizing the icons to match the theme */
+mat-icon {
+  color: #6a5acd; /* Slate Blue/Purple */
+}
+
+/* Section labels for Radio and Slider */
+.radio-group, .slider-group, .checkbox-group {
+  margin: 10px 0;
+  color: #444;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4b0082;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Premium Button Styling */
+button[type="submit"] {
+  height: 50px;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  background-color: #4b0082 !important; /* Rich Dark Purple */
+  color: #ffffff !important;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #310054 !important;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+  background-color: #b19cd9 !important; /* Muted lavender for disabled state */
+}
+
+/* The summary box at the bottom */
+.summary {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #f9f7ff;
+  border-left: 4px solid #6a5acd;
+  border-radius: 4px;
+  color: #333;
+}

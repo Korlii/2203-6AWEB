@@ -1,0 +1,97 @@
+<div class="page-container" [class.dark-theme]="isDarkMode">
+
+  <div class="form-card">
+    <div class="header">
+      <h1>Job Application</h1>
+      <mat-slide-toggle (change)="toggleTheme()">
+        <mat-icon>{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      </mat-slide-toggle>
+    </div>
+
+    <mat-accordion class="description-panel">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Role Requirements</mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>This position requires high proficiency in Angular and TypeScript. Applicants must be 18 years or older to apply for legal compliance.</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName" placeholder="John Doe">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="email@example.com">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Secure Password</mat-label>
+        <input matInput type="password" formControlName="password">
+        @if (jobForm.get('password')?.hasError('pattern')) {
+          <mat-error>Start with a letter, alphanumeric only, min 8 chars.</mat-error>
+        }
+      </mat-form-field>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Birth Date</mat-label>
+          <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-hint>Year 2006 or below only</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Department</mat-label>
+          <mat-select formControlName="department">
+            <mat-option value="Development">Development</mat-option>
+            <mat-option value="Cybersecurity">Cybersecurity</mat-option>
+            <mat-option value="Cloud Ops">Cloud Ops</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="chips-container">
+        <label>Skill Tags (Press Enter to add):</label>
+        <mat-form-field appearance="outline" class="chip-list">
+          <mat-chip-grid #chipGrid aria-label="Skill selection">
+            @for (skill of skills(); track skill) {
+              <mat-chip-row (removed)="removeSkill(skill)">
+                <span class="chip-text">{{skill}}</span>
+                <button matChipRemove [attr.aria-label]="'remove ' + skill">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            }
+            <input placeholder="New skill..."
+                  [matChipInputFor]="chipGrid"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="addSkill($event)"/>
+          </mat-chip-grid>
+        </mat-form-field>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="!jobForm.valid">
+        SUBMIT APPLICATION
+      </button>
+    </form>
+
+    @if (submittedData) {
+      <div class="summary-bar">
+        <h3>Application Summary</h3>
+        <div class="data-grid">
+          <span><strong>Name:</strong> {{ submittedData.fullName }}</span>
+          <span><strong>Email:</strong> {{ submittedData.email }}</span>
+          <span><strong>Dept:</strong> {{ submittedData.department }}</span>
+          <span><strong>Birth Date:</strong> {{ submittedData.birthDate | date:'longDate' }}</span>
+          <span><strong>Password:</strong> {{ submittedData.password }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</div>

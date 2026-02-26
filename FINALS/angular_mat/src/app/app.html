@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="nav-brand">
+    <mat-icon>layers</mat-icon>
+    <span>{{ title() }}</span>
+  </div>
+
+  <div class="nav-links">
+    <a routerLink="/register" routerLinkActive="active-link">
+      <mat-icon>person_add</mat-icon>
+      Register
+    </a>
+    <a routerLink="/job-application" routerLinkActive="active-link">
+      <mat-icon>work_outline</mat-icon>
+      Job Application
+    </a>
+  </div>
+</nav>
+
+<main class="content-container">
+  <router-outlet />
+</main>

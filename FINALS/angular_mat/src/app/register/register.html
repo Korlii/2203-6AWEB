@@ -1,0 +1,90 @@
+<div class="form-container">
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <mat-icon matPrefix>person</mat-icon>
+      <input matInput placeholder="Enter Text" formControlName="userName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <mat-icon matPrefix>email</mat-icon>
+      <input matInput type="email" placeholder="Enter Email" formControlName="email">
+      @if (formdata.controls['email'].invalid && formdata.controls['email'].touched) {
+        <mat-error>Email is required and valid.</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <mat-icon matPrefix>lock</mat-icon>
+      <input matInput type="password" placeholder="Enter password" formControlName="password">
+    </mat-form-field>
+      @if (formdata.controls['password'].touched) {
+        @if (formdata.controls['password'].hasError('required')) {
+          <mat-error>Password is required.</mat-error>
+        }
+        @if (formdata.controls['password'].hasError('minlength')) {
+          <mat-error>Password must be at least 8 characters long.</mat-error>
+        }
+      }
+
+    <div class="radio-group">
+      <label class="radio-label">Gender</label>
+      <mat-radio-group formControlName="gender">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <mat-icon matPrefix>location_on</mat-icon>
+      <input matInput placeholder="Search City" formControlName="address" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (option of filteredOptions | async; track option) {
+          <mat-option [value]="option">{{option}}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Birth Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="slider-group">
+      <label>Angular Skill Level: {{ formdata.get('angularSkillLevel')?.value }}</label>
+      <mat-slider min="1" max="10" step="1" discrete>
+        <input matSliderThumb formControlName="angularSkillLevel">
+      </mat-slider>
+    </div>
+
+    <div class="checkbox-group">
+      <mat-checkbox formControlName="agree">
+        I agree to the Terms and Conditions
+      </mat-checkbox>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!formdata.valid">
+      <mat-icon>check_circle</mat-icon> Click Here
+    </button>
+
+    @if (submitted) {
+      <div class="summary">
+        <h3><strong>Registration Summary</strong></h3>
+        <hr>
+        <p><strong>Username:</strong> {{ userName }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Password:</strong> {{ password }}</p>
+        <p><strong>Gender:</strong> {{ gender }}</p>
+        <p><strong>Address:</strong> {{ address }}</p>
+        <p><strong>Birth Date:</strong> {{ birthDate | date:'fullDate' }}</p>
+        <p><strong>Angular Skill Level:</strong> {{ angularSkillLevel }} / 10</p>
+      </div>
+    }
+  </form>
+</div>
