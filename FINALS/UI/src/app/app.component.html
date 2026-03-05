@@ -1,0 +1,75 @@
+<div class="registry-container">
+  <header>
+    <h2>Teyvat Citizenship Registry</h2>
+    <p class="subtitle">Managing the records of the seven nations</p>
+  </header>
+
+  <div class="form-card" [class.editing-mode]="editingId">
+    <div class="form-header">
+      <h4>{{ editingId ? 'Update Citizen Record' : 'Register New Citizen' }}</h4>
+      <span *ngIf="editingId" class="id-badge">ID: {{ editingId }}</span>
+    </div>
+
+    <div class="input-grid">
+      <div class="field">
+        <label>Full Name</label>
+        <input id="newName" placeholder="e.g. Kaedehara Kazuha">
+      </div>
+      <div class="field">
+        <label>Nation</label>
+        <input id="newNation" placeholder="e.g. Inazuma">
+      </div>
+      <div class="field">
+        <label>Vision</label>
+        <input id="newVision" placeholder="e.g. Anemo">
+      </div>
+      <div class="field">
+        <label>Weapon Type</label>
+        <input id="newWeapon" placeholder="e.g. Sword">
+      </div>
+      <div class="field">
+        <label>Role</label>
+        <input id="newRole" placeholder="e.g. Support">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      @if (!editingId) {
+        <button class="btn btn-primary" (click)="addCitizen()">Register Citizen</button>
+      } @else {
+        <button class="btn btn-update" (click)="updateCitizen()">Save Changes</button>
+        <button class="btn btn-cancel" (click)="cancelEdit()">Cancel</button>
+      }
+    </div>
+  </div>
+
+  <div class="divider">
+    <span>Registry Archives</span>
+  </div>
+
+  <div class="citizen-list">
+    @for (c of citizens; track c.id) {
+      <div class="citizen-card">
+        <div class="card-content">
+          <h3>{{ c.name }}</h3>
+          <div class="details">
+            <span><strong>Nation:</strong> {{ c.nation }}</span>
+            <span><strong>Vision:</strong> {{ c.vision }}</span>
+            <span><strong>Weapon:</strong> {{ c.weaponType }}</span>
+            <span><strong>Role:</strong> {{ c.role }}</span>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-icon edit" (click)="fillEditForm(c)" title="Edit">Edit</button>
+          <button class="btn-icon delete" (click)="deleteCitizen(c.id)" title="Delete">Delete</button>
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <p>No citizens registered in the database archives.</p>
+      </div>
+    }
+  </div>
+</div>
+
+<router-outlet />
